@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alireza Shamsaei is a technical product manager working across AI, business automation and engineering delivery.">
+  <meta name="theme-color" content="#101411">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Alireza Shamsaei | Technical Product Manager">
+  <meta property="og:description" content="Technical product management, AI and business automation.">
+  <title>Alireza Shamsaei | Technical Product Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #101411;
+      --panel: #171e19;
+      --panel-2: #1d2720;
+      --text: #edf2e9;
+      --muted: #a4b0a4;
+      --line: rgba(220,235,218,.13);
+      --accent: #c4f06b;
+      --accent-2: #8cae51;
+      --max: 1120px;
+      --navh: 76px;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background:
+        radial-gradient(ellipse at 80% 0%, rgba(143,185,87,.12), transparent 32rem),
+        var(--bg); color: var(--text);
+      font-family: "Manrope", sans-serif; line-height: 1.65;
+    }
+    p { text-wrap: pretty; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--accent); }
+    a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+    :where(a, button):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    ::selection { background: rgba(196,240,107,.9); color: #141a12; }
+    :where(section, header)[id] { scroll-margin-top: calc(var(--navh) + 20px); }
+    html {
+      accent-color: var(--accent);
+      scrollbar-color: rgba(196,240,107,.26) #0c0f0d; scrollbar-width: thin;
+    }
+    ::-webkit-scrollbar { width: 9px; height: 9px; }
+    ::-webkit-scrollbar-track { background: #0c0f0d; }
+    ::-webkit-scrollbar-thumb { background: rgba(196,240,107,.24); border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(196,240,107,.42); }
+    .skip {
+      position: fixed; left: 16px; top: -64px; z-index: 60;
+      padding: 10px 14px; border-radius: 5px; background: var(--accent);
+      color: #172014; font-size: 13px; font-weight: 700;
+      transition: top .2s var(--ease);
+    }
+    .skip:focus { top: 12px; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin: auto; }
+    .mono, .eyebrow, .tag, .number { font-family: "DM Mono", monospace; }
+    .nav {
+      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px);
+      background: rgba(16,20,17,.82); border-bottom: 1px solid var(--line);
+    }
+    .nav-inner { height: 76px; display:flex; align-items:center; justify-content:space-between; }
+    .brand { font-weight:800; letter-spacing:-.06em; font-size:19px; }
+    .brand span { color:var(--accent); }
+    .nav-links { display:flex; gap:28px; color:var(--muted); font-size:13px; }
+    .nav-links a { position:relative; padding:4px 0; transition:color .2s; }
+    .nav-links a::after {
+      content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
+      background:var(--accent); transform:scaleX(0); transform-origin:left;
+      transition:transform .3s var(--ease);
+    }
+    .nav-links a:is(:hover, .is-active)::after { transform:scaleX(1); }
+    .nav-links a.is-active { color:var(--text); }
+    .nav-right { display:flex; align-items:center; gap:12px; }
+    .nav-toggle { display:none; }
+    .nav-cta {
+      border:1px solid var(--line); padding:10px 15px; border-radius:5px; font-size:12px;
+      transition:border-color .2s, color .2s, background-color .2s;
+    }
+    .nav-cta:hover, .nav-cta:focus-visible {
+      color:var(--accent); border-color:rgba(196,240,107,.45); background:rgba(196,240,107,.06);
+    }
+    .hero { padding:112px 0 100px; display:grid; grid-template-columns: 1.35fr .65fr; gap:64px; align-items:center; }
+    .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.16em; font-size:11px; }
+    h1 { font-size: clamp(46px, 7vw, 82px); line-height:1.04; letter-spacing:-.055em; margin:22px 0 24px; max-width:800px; }
+    h1 em { color:var(--accent); font-style:normal; }
+    .hero-copy { color:var(--muted); font-size:17px; max-width:650px; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:34px; }
+    .btn {
+      display:inline-flex; align-items:center; gap:10px; padding:13px 18px; border-radius:5px;
+      font-weight:700; font-size:13px;
+      transition:background-color .2s, color .2s, border-color .2s, transform .3s var(--ease);
+    }
+    .btn:active { transform:translateY(0); }
+    .btn-primary { background:var(--accent); color:#172014; }
+    .btn-primary:hover { color:#172014; background:#d6ff83; transform:translateY(-2px); }
+    .btn-secondary { border:1px solid var(--line); color:var(--text); }
+    .btn-secondary:hover, .btn-secondary:focus-visible {
+      color:var(--accent); border-color:rgba(196,240,107,.45);
+      background:rgba(196,240,107,.05); transform:translateY(-2px);
+    }
+    .hero-card { border:1px solid var(--line); background:linear-gradient(145deg,rgba(196,240,107,.09),rgba(255,255,255,.015)); padding:26px; border-radius:8px; position:relative; overflow:hidden; }
+    .hero-card:after { content:""; position:absolute; width:180px;height:180px;border:1px solid rgba(196,240,107,.2);border-radius:50%;right:-70px;top:-70px;box-shadow:0 0 0 24px rgba(196,240,107,.025),0 0 0 48px rgba(196,240,107,.02); }
+    .availability { display:flex; gap:9px; align-items:center; color:var(--muted); font-size:12px; }
+    .dot { width:8px;height:8px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 3px rgba(196,240,107,.16); }
+    .hero-card .hero-card-title { font-size:23px; font-weight:800; line-height:1.3; letter-spacing:-.03em; color:var(--text); margin:34px 0 12px; }
+    .hero-card p { color:var(--muted);font-size:13px;margin:0; }
+    .mini-stats { display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;padding-top:20px;border-top:1px solid var(--line); }
+    .mini-stats strong { display:block;font-size:25px;letter-spacing:-.05em; }
+    .mini-stats span { color:var(--muted);font-size:12px; }
+    section { padding:82px 0; border-top:1px solid var(--line); }
+    .section-head { display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:34px; }
+    .section-head h2 { font-size:clamp(30px,4vw,45px);letter-spacing:-.045em;line-height:1.1;margin:10px 0 0; }
+    .section-head p { max-width:440px;color:var(--muted);font-size:13px;margin:0; }
+    .about-grid { display:grid;grid-template-columns:1fr 1fr;gap:60px; }
+    .about-grid p { color:var(--muted);font-size:15px;margin-top:0; }
+    .skill-groups { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
+    .skill-box { padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:6px; }
+    .skill-box h3 { font-size:13px;margin:0 0 13px; }
+    .tags { display:flex;flex-wrap:wrap;gap:7px; }
+    .tag { font-size:11px;color:#d5dfd2;background:rgba(255,255,255,.055);border:1px solid var(--line);padding:6px 8px;border-radius:3px; }
+    .projects { display:grid;grid-template-columns:1fr 1fr;gap:16px; }
+    .project { background:var(--panel);border:1px solid var(--line);border-radius:7px;overflow:hidden;transition:transform .35s var(--ease), border-color .25s; }
+    @media (hover:hover) {
+      .project:hover { transform:translateY(-4px);border-color:rgba(196,240,107,.45); }
+    }
+    .project-visual { height:190px;padding:22px;display:flex;align-items:end;position:relative;overflow:hidden;background:linear-gradient(135deg,#27362a,#17221b); }
+    .project:nth-child(2) .project-visual { background:linear-gradient(135deg,#26323b,#192126); }
+    .project:nth-child(3) .project-visual { background:linear-gradient(135deg,#3a3325,#211e18); }
+    .project:nth-child(4) .project-visual { background:linear-gradient(135deg,#343044,#201d29); }
+    .visual-label { font-family:"DM Mono";font-size:11px;letter-spacing:.14em;color:rgba(237,242,233,.78);z-index:1; }
+    .visual-shape { position:absolute;right:30px;top:20px;width:130px;height:130px;border:1px solid rgba(196,240,107,.42);border-radius:28px;transform:rotate(18deg); }
+    .visual-shape:before,.visual-shape:after { content:"";position:absolute;border:1px solid rgba(196,240,107,.28);border-radius:20px;inset:15px; }
+    .visual-shape:after { inset:32px; }
+    .project-body { padding:23px; }
+    .project-top { display:flex;justify-content:space-between;gap:10px;align-items:center; }
+    .project-top .number { color:var(--accent);font-size:11px; }
+    .project h3 { font-size:20px;letter-spacing:-.04em;margin:12px 0 9px; }
+    .project p { color:var(--muted);font-size:13px;margin:0 0 18px; }
+    .project .tags { margin-bottom:18px; }
+    .project-link {
+      color:var(--accent);font-size:12px;font-weight:700;
+      text-decoration:underline;text-decoration-color:rgba(196,240,107,.32);
+      text-decoration-thickness:1px;text-underline-offset:4px;
+      transition:color .2s, text-decoration-color .2s;
+    }
+    .project-link:hover, .project-link:focus-visible { color:#d6ff83;text-decoration-color:currentColor; }
+    .timeline { border-left:1px solid var(--line);margin-left:7px;padding-left:28px;display:grid;gap:28px; }
+    .job { position:relative;display:grid;grid-template-columns:220px 1fr;gap:28px; }
+    .job:before { content:"";position:absolute;left:-33px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent); }
+    .job-date { color:var(--accent);font:11px "DM Mono"; }
+    .job h3 { margin:0;font-size:17px; }
+    .job .company { color:var(--muted);font-size:12px;margin-top:4px; }
+    .job ul { margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:13px; }
+    .job li { margin:5px 0; }
+    .contact { background:var(--panel);border:1px solid var(--line);padding:38px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;gap:30px; }
+    .contact h2 { font-size:clamp(28px,4vw,42px);letter-spacing:-.045em;line-height:1.1;margin:10px 0; }
+    .contact p { color:var(--muted);font-size:13px;margin:0; }
+    footer { padding:28px 0;color:var(--muted);font-size:12px; }
+    .footer-inner { display:flex;justify-content:space-between;gap:20px; }
+    @media(max-width:800px) {
+      .hero { grid-template-columns:1fr;gap:38px;padding:78px 0; }
+      .hero-card { max-width:500px; }
+      .about-grid { grid-template-columns:1fr;gap:28px; }
+      .job { grid-template-columns:1fr;gap:8px; }
+      .section-head { display:block; }
+      .section-head p { margin-top:14px; }
+      .contact { display:block;padding:28px; }
+      .contact .btn { margin-top:22px; }
+    }
+    @media(max-width:600px) {
+      :root { --navh: 65px; }
+      .wrap { width:min(100% - 32px,var(--max)); }
+      .nav-inner { height:65px; }
+      .nav-toggle {
+        display:inline-flex; flex-direction:column; justify-content:center; gap:5px;
+        width:38px; height:38px; padding:0 8px; cursor:pointer;
+        background:none; border:1px solid var(--line); border-radius:5px;
+      }
+      .nav-toggle span { display:block; height:1.5px; border-radius:2px; background:var(--text); transition:transform .25s var(--ease); }
+      .nav-toggle[aria-expanded="true"] span:first-child { transform:translateY(3.25px) rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] span:last-child { transform:translateY(-3.25px) rotate(-45deg); }
+      .nav-links {
+        position:absolute; top:100%; left:0; right:0; display:flex; flex-direction:column; gap:0;
+        padding:6px 16px 12px; font-size:14px;
+        background:#0d1110;
+        border-bottom:1px solid var(--line); box-shadow:0 22px 40px rgba(0,0,0,.45);
+        opacity:0; visibility:hidden; transform:translateY(-6px);
+        transition:opacity .2s, transform .25s var(--ease), visibility .2s;
+      }
+      .nav-links[data-open="true"] { opacity:1; visibility:visible; transform:none; }
+      .nav-links a { padding:14px 0; border-bottom:1px solid var(--line); }
+      .nav-links a:last-child { border-bottom:0; }
+      .nav-links a::after { display:none; }
+      .nav-links a.is-active { color:var(--accent); }
+      .projects,.skill-groups { grid-template-columns:1fr; }
+      section { padding:64px 0; }
+      .hero-copy { font-size:15px; }
+      .project-visual { height:155px; }
+      .visual-shape { width:100px; height:100px; right:22px; top:18px; }
+      .footer-inner { display:block; }
+      .footer-inner > * { display:block; }
+      .footer-inner > * + * { margin-top:8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after {
+        transition-duration:.01ms !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+      }
+    }
+
+    /* Motion is progressively enhanced: without JavaScript, content stays visible. */
+    .motion-ready .reveal { opacity:0; transform:translateY(20px); transition:opacity .65s var(--ease), transform .65s var(--ease); transition-delay:var(--reveal-delay, 0ms); }
+    .motion-ready .reveal.is-visible, .motion-ready .reveal:focus-within { opacity:1; transform:none; }
+    .contact-social { display:flex; gap:24px; margin-top:20px; font-size:13px; }
+    .contact-social a { color:var(--accent); }
+    .visual-shape { transition:transform .5s var(--ease); }
+    .btn:active { transform:scale(.97); }
+    @media (hover:hover) and (pointer:fine) {
+      .motion-ready .project.is-visible:hover { transform:translateY(-4px); }
+      .project:hover .visual-shape { transform:rotate(28deg) scale(1.05); }
+      .skill-box { transition:border-color .2s, background-color .2s; }
+      .skill-box:hover { border-color:rgba(196,240,107,.4); background:#1d2720; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .motion-ready .reveal { opacity:1; transform:none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <nav class="nav" aria-label="Primary">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#home">ALIREZA<span>.</span></a>
+      <div class="nav-links" id="nav-menu" data-open="false">
+        <a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a class="nav-cta" href="mailto:alirezashamsaei3@gmail.com">LET'S TALK ↗</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="wrap hero" id="home">
+      <div>
+        <div class="eyebrow">Technical Product Manager &middot; AI &amp; Business Automation</div>
+        <h1>From business challenges to <em>useful products.</em></h1>
+        <p class="hero-copy">I'm Alireza Shamsaei, a product and technology professional with a software engineering background. I connect product thinking and technical delivery to build digital products and AI-enabled workflows.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Explore selected work <span>↘</span></a>
+          <a class="btn btn-secondary" href="mailto:alirezashamsaei3@gmail.com">Get in touch ↗</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="availability"><span class="dot"></span> OPEN TO RELEVANT OPPORTUNITIES</div>
+        <p class="hero-card-title">Product thinking, technical fluency.</p>
+        <p>Currently driving an Android game from product planning and architecture through AI-assisted implementation.</p>
+        <div class="mini-stats">
+          <div><strong>500+</strong><span>Support conversations / month</span></div>
+          <div><strong>~40%</strong><span>Automated resolution</span></div>
+        </div>
+      </aside>
+    </header>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">01 / About</div><h2>A little about my work.</h2></div>
+          <p>Product leadership grounded in business context and hands-on technical experience.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>I own product roadmaps, coordinate engineering delivery, and translate operational challenges into prioritized initiatives. My work combines business analysis, product thinking, and a software engineering foundation.</p>
+            <p>Today, I am leading the end-to-end development of an Android game using AI-assisted engineering, while building AI-enabled workflows for business operations.</p>
+            <p>Based in Tehran and open to relocation. MBA, Tehran Business School (2023); BSc in Information Technology, Islamic Azad University. Persian is my native language and I speak English fluently.</p>
+          </div>
+          <div class="skill-groups">
+            <div class="skill-box"><h3>Product &amp; Business</h3><div class="tags"><span class="tag">Roadmaps</span><span class="tag">Requirements</span><span class="tag">Prioritization</span><span class="tag">Trade-offs</span><span class="tag">Cross-functional delivery</span><span class="tag">People analytics</span></div></div>
+            <div class="skill-box"><h3>AI &amp; Automation</h3><div class="tags"><span class="tag">n8n</span><span class="tag">LLM applications</span><span class="tag">RAG</span><span class="tag">Evaluation</span><span class="tag">Vector search</span><span class="tag">OpenAI &amp; Gemini APIs</span></div></div>
+            <div class="skill-box"><h3>AI-Assisted Development</h3><div class="tags"><span class="tag">Claude Code</span><span class="tag">Codex</span><span class="tag">AI-assisted SDLC</span><span class="tag">Technical planning</span><span class="tag">Validation</span></div></div>
+            <div class="skill-box"><h3>Technical Foundation</h3><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">FastAPI</span><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">Git</span><span class="tag">Power BI</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">02 / Selected work</div><h2>Projects & case studies.</h2></div>
+          <p>Selected initiatives across product development, AI automation, and data systems.</p>
+        </div>
+        <div class="projects">
+          <article class="project"><div class="project-visual"><div class="visual-shape" aria-hidden="true"></div><span class="visual-label">01 &mdash; ANDROID / IN PROGRESS</span></div><div class="project-body"><div class="project-top"><span class="number">PROJECT 01</span></div><h3>Bingo Box</h3><p>Leading product and technical development of an Android game, from requirements and architecture to implementation across Unity/C# client, backend, administration, and creative assets. AI tools assist production with human oversight of quality and integration.</p><div class="tags"><span class="tag">Unity / C#</span><span class="tag">Android</span><span class="tag">AI-assisted development</span></div><a class="project-link" href="mailto:alirezashamsaei3@gmail.com?subject=Bingo%20Box">Ask about this project &nearr;</a></div></article>
+          <article class="project"><div class="project-visual"><div class="visual-shape" aria-hidden="true"></div><span class="visual-label">02 &mdash; AI / AUTOMATION</span></div><div class="project-body"><div class="project-top"><span class="number">PROJECT 02</span></div><h3>AI Support Assistant</h3><p>Designed a policy-grounded workflow for a live WooCommerce store, with Google Docs policy re-indexing and answer evaluation before release. It handles 500+ conversations monthly with approximately 40% automated resolution.</p><div class="tags"><span class="tag">n8n</span><span class="tag">Gemini</span><span class="tag">Supabase pgvector</span><span class="tag">Telegram Bot API</span></div><a class="project-link" href="mailto:alirezashamsaei3@gmail.com?subject=AI%20Support%20Assistant">Ask about this project &nearr;</a></div></article>
+          <article class="project"><div class="project-visual"><div class="visual-shape" aria-hidden="true"></div><span class="visual-label">03 &mdash; DATA / BENCHMARKING</span></div><div class="project-body"><div class="project-top"><span class="number">PROJECT 03</span></div><h3>E-commerce Data Extraction</h3><p>Built a fault-tolerant Python pipeline collecting specifications and reviews for approximately one million products, standardizing the data for market and competitor benchmarking.</p><div class="tags"><span class="tag">Python</span><span class="tag">Multithreading</span><span class="tag">Data pipelines</span></div><a class="project-link" href="mailto:alirezashamsaei3@gmail.com?subject=E-commerce%20Data%20Pipeline">Ask about this project &nearr;</a></div></article>
+          <article class="project"><div class="project-visual"><div class="visual-shape" aria-hidden="true"></div><span class="visual-label">04 &mdash; PRODUCT / MVP</span></div><div class="project-body"><div class="project-top"><span class="number">PROJECT 04</span></div><h3>Startup MVP Delivery</h3><p>Took concepts to working MVPs for teams pursuing Canada's Start-up Visa Program, owning architecture, database design, development, deployment, and infrastructure.</p><div class="tags"><span class="tag">Healthcare</span><span class="tag">Maritime</span><span class="tag">HR</span><span class="tag">Construction</span></div><a class="project-link" href="mailto:alirezashamsaei3@gmail.com?subject=Startup%20MVP%20Delivery">Ask about this project &nearr;</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">03 / Experience</div><h2>Where I've worked.</h2></div>
+          <p>Experience across business operations, enterprise software, data analysis, and independent software development.</p>
+        </div>
+        <div class="timeline">
+          <article class="job"><div><div class="job-date">JUL 2026 &mdash; PRESENT</div><h3>Independent AI Engineer</h3><div class="company">Freelance</div></div><ul><li>Driving end-to-end Android game development across product scope, architecture, technical planning, implementation, and creative assets.</li><li>Implemented AI support automation for a live WooCommerce store.</li></ul></article>
+          <article class="job"><div><div class="job-date">JAN 2025 &mdash; JUN 2026</div><h3>Technical Product Manager</h3><div class="company">Nakhl Mosafer &middot; Tourism &middot; Qeshm Island</div></div><ul><li>Owned the product and technology roadmap across three business branches.</li><li>Led requirements, trade-offs and delivery with a 4&ndash;10-person engineering team, unifying digital operations and removing manual reconciliation.</li></ul></article>
+          <article class="job"><div><div class="job-date">JAN 2023 &mdash; DEC 2024</div><h3>Software Engineer</h3><div class="company">Sotoon &middot; HR Products</div></div><ul><li>Built Django HR products used daily by approximately 200 employees, including workplace booking supporting about 1,500 bookings per month.</li><li>Built self-service people analytics dashboards for managers.</li></ul></article>
+          <article class="job"><div><div class="job-date">SEP 2020 &mdash; DEC 2022</div><h3>Software Engineer &amp; Data Analyst</h3><div class="company">Natural Moreish &middot; Australia</div></div><ul><li>Grew organic traffic by more than 200% and achieved top-three Google rankings for target keywords.</li><li>Automated recurring reporting and built stakeholder dashboards.</li></ul></article>
+          <article class="job"><div><div class="job-date">2018 &mdash; 2020</div><h3>Freelance Software Developer</h3><div class="company">Independent</div></div><ul><li>Delivered web applications, REST APIs, automation tools and crawlers, including IoT and embedded solutions deployed on Linux with Docker.</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <div><div class="eyebrow">04 / Contact</div><h2>Have a problem worth solving?</h2><p>Let's talk about technical product management, AI, and business automation. Open to relocation.</p></div>
+          <a class="btn btn-primary" href="mailto:alirezashamsaei3@gmail.com">alirezashamsaei3@gmail.com ↗</a>
+        </div>
+      <div class="contact-social"><a href="https://www.linkedin.com/in/alireza-shamsaei">LinkedIn &nearr;</a><a href="https://github.com/alirezashamsaei">GitHub &nearr;</a></div></div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-inner"><strong>ALIREZA SHAMSAEI</strong><span>Tehran, Iran · Persian (Native) · English (Fluent)</span><span>© <span id="year"></span> All rights reserved.</span></div></footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+
+    const motionQuery = matchMedia("(prefers-reduced-motion: reduce)");
+    if ("IntersectionObserver" in window && !motionQuery.matches) {
+      const targets = document.querySelectorAll(".section-head, .about-copy, .skill-box, .project, .job, .contact, .contact-social, .footer-inner");
+      document.documentElement.classList.add("motion-ready");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); }
+        });
+      }, { rootMargin: "0px 0px -5% 0px", threshold: 0.05 });
+      targets.forEach((target) => {
+        target.classList.add("reveal");
+        const siblings = [...target.parentElement.children].filter((el) => el.matches(".skill-box, .project, .job"));
+        if (siblings.length) target.style.setProperty("--reveal-delay", `${Math.min(siblings.indexOf(target) % 4, 3) * 50}ms`);
+        observer.observe(target);
+      });
+      motionQuery.addEventListener("change", (event) => {
+        if (event.matches) { targets.forEach((target) => target.classList.add("is-visible")); observer.disconnect(); }
+      });
+    }
+
+    const navToggle = document.querySelector(".nav-toggle");
+    const navMenu = document.getElementById("nav-menu");
+    const setMenu = (open) => {
+      navToggle.setAttribute("aria-expanded", String(open));
+      navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      navMenu.dataset.open = String(open);
+    };
+    navToggle.addEventListener("click", () => setMenu(navMenu.dataset.open !== "true"));
+    navMenu.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && navMenu.dataset.open === "true") { setMenu(false); navToggle.focus(); }
+    });
+
+    const navLinks = [...navMenu.querySelectorAll("a")];
+    const sections = navLinks.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+    let queued = false;
+    const syncNav = () => {
+      queued = false;
+      const probe = window.scrollY + 160;
+      let current = null;
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top + window.scrollY <= probe) current = section.id;
+      }
+      for (const link of navLinks) {
+        const active = link.getAttribute("href") === "#" + current;
+        link.classList.toggle("is-active", active);
+        if (active) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      }
+    };
+    addEventListener("scroll", () => {
+      if (!queued) { queued = true; requestAnimationFrame(syncNav); }
+    }, { passive: true });
+    addEventListener("resize", syncNav);
+    syncNav();
+  </script>
+</body>
+</html>
