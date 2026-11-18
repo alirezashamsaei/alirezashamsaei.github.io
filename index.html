@@ -507,16 +507,24 @@ a:focus-visible { outline-color: #ff8996; }
 }
 
 /* Feature the lead project, then let the remaining work scan as a set. */
+@media (min-width: 1000px) {
+  .gallery-exhibits { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @media (min-width: 850px) {
   .exhibit:first-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.16fr) minmax(0, 1fr); align-items: stretch; }
   .exhibit:first-child .exhibit-art { height: 100%; min-height: 390px; aspect-ratio: auto; }
   .exhibit:first-child .exhibit-copy { padding: clamp(28px, 4vw, 60px); }
 }
-.exhibit-copy h3 { letter-spacing: -.04em; }
+.exhibit-copy h3 { font-size: clamp(23px, 1.9vw, 28px); line-height: 1.15; letter-spacing: -.03em; text-wrap: balance; }
+.exhibit:first-child .exhibit-copy h3 { font-size: clamp(30px, 2.8vw, 40px); }
 .project-detail { margin-top: 22px; }
 .project-detail + .project-detail { margin-top: 16px; }
 .project-detail > span { display: block; color: #d69b9e; font-size: 12px; font-weight: 650; letter-spacing: .04em; }
-.exhibit-copy .project-detail p { margin-top: 5px; max-width: 48ch; }
+.exhibit-copy .project-detail p { margin-top: 5px; max-width: 48ch; font-size: 15px; line-height: 1.55; }
+.exhibit .stack { font-size: 12px; line-height: 1.5; }
+.exhibit .proof strong { font-size: clamp(24px, 2.1vw, 30px); line-height: 1.1; }
+.exhibit .proof span { display: block; margin-top: 4px; font-size: 12px; line-height: 1.4; }
+.exhibit .text-link { font-size: 14px; }
 .exhibit .proof { margin-top: 24px; }
 @media (max-width: 520px) {
   .top .shell { gap: 4px; }
